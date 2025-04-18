@@ -1,0 +1,171 @@
+{{ define "main" }}
+<article class="h-entry post">
+  <div class="post-cyber-decor top-left"></div>
+  <div class="post-cyber-decor top-right"></div>
+  
+  {{ if .Title }}
+    <h1 class="p-name post-title">{{ .Title }}</h1>
+  {{ end }}
+  
+  <div class="e-content post-content">
+    {{ .Content }}
+  </div>
+  
+  <aside class="post-metadata">
+    <a class="u-url" href="{{ .Permalink }}">
+      <time class="dt-published" datetime="{{ .Date.Format "2006-01-02T15:04:05-0700" }}">
+        {{ .Date.Format "January 2, 2006" }}
+      </time>
+    </a>
+    {{ with .Params.categories }}
+      <div class="post-categories">
+        {{ range . }}
+          <a class="p-category" href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+        {{ end }}
+      </div>
+    {{ end }}
+  </aside>
+  
+  <div class="post-cyber-decor bottom-left"></div>
+  <div class="post-cyber-decor bottom-right"></div>
+  
+  {{ partial "microblog_syndication.html" . }}
+</article>
+
+<style>
+  .post {
+    position: relative;
+    margin-bottom: 50px;
+    padding: 30px;
+    background-color: rgba(6, 1, 19, 0.7);
+    border: 1px solid var(--neon-blue);
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(5, 217, 232, 0.4);
+    overflow: hidden;
+  }
+  
+  .post::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--neon-pink), var(--neon-blue));
+    box-shadow: 0 0 15px rgba(255, 42, 109, 0.6);
+  }
+  
+  .post-cyber-decor {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-style: solid;
+    z-index: 1;
+  }
+  
+  .top-left {
+    top: 10px;
+    left: 10px;
+    border-width: 2px 0 0 2px;
+    border-color: var(--neon-pink);
+  }
+  
+  .top-right {
+    top: 10px;
+    right: 10px;
+    border-width: 2px 2px 0 0;
+    border-color: var(--neon-blue);
+  }
+  
+  .bottom-left {
+    bottom: 10px;
+    left: 10px;
+    border-width: 0 0 2px 2px;
+    border-color: var(--neon-blue);
+  }
+  
+  .bottom-right {
+    bottom: 10px;
+    right: 10px;
+    border-width: 0 2px 2px 0;
+    border-color: var(--neon-pink);
+  }
+  
+  .post-title {
+    position: relative;
+    margin-top: 0;
+    font-size: 28px;
+    border-bottom: 1px solid var(--neon-blue);
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+  }
+  
+  .post-title::before {
+    content: "> ";
+    color: var(--neon-pink);
+  }
+  
+  .post-content {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .post-content img {
+    border: 2px solid var(--neon-blue);
+    border-radius: 5px;
+    max-width: 100%;
+    transition: all 0.3s ease;
+  }
+  
+  .post-content img:hover {
+    border-color: var(--neon-pink);
+    box-shadow: 0 0 15px rgba(255, 42, 109, 0.6);
+  }
+  
+  .post-metadata {
+    font-size: 0.9em;
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px dashed var(--neon-blue);
+    color: var(--cyber-yellow);
+  }
+  
+  .post-categories {
+    margin-top: 10px;
+  }
+  
+  blockquote {
+    border-left: 3px solid var(--neon-pink);
+    background-color: rgba(255, 42, 109, 0.1);
+    margin-left: 0;
+    padding: 10px 20px;
+  }
+  
+  /* Terminal-like pre/code blocks */
+  pre {
+    background-color: var(--darker-bg);
+    border: 1px solid var(--neon-green);
+    border-radius: 5px;
+    padding: 15px;
+    overflow: auto;
+    position: relative;
+  }
+  
+  pre::before {
+    content: "EXECUTE:";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--neon-green);
+    color: var(--darker-bg);
+    padding: 2px 8px;
+    font-size: 12px;
+    font-weight: bold;
+  }
+  
+  code {
+    font-family: "Courier New", monospace;
+    color: var(--neon-green);
+  }
+</style>
+{{ end }}

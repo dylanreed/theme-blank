@@ -1,0 +1,271 @@
+{{ define "main" }}
+
+<div class="cyber-home-header">
+  <h1 class="cyber-home-title">{{ .Site.Title }}</h1>
+  <div class="cyber-scanner-line"></div>
+</div>
+
+<div class="cyber-grid">
+  {{- $list := first 25 (where .Site.Pages "Type" "post") -}}
+  {{ range $list }}
+    <article class="h-entry post-card">
+      <div class="post-card-inner">
+        <div class="post-card-glitch"></div>
+        
+        {{ if .Title }}
+          <h2 class="p-name post-card-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+        {{ end }}
+        
+        <div class="p-summary post-card-summary">
+          {{ if .Params.photos }}
+            {{ range first 1 .Params.photos }}
+              <a href="{{ $.Permalink }}">
+                <img src="{{ . }}" width="100%" style="border-radius: 3px;" class="cyber-image" loading="lazy" />
+              </a>
+            {{ end }}
+          {{ else }}
+            {{ if gt (len .Summary) 0 }}
+              {{ .Summary }}
+            {{ else }}
+              {{ .Content }}
+            {{ end }}
+          {{ end }}
+        </div>
+        
+        <div class="post-card-meta">
+          <a class="u-url" href="{{ .Permalink }}">
+            <time class="dt-published" datetime="{{ .Date.Format "2006-01-02T15:04:05-0700" }}">
+              {{ .Date.Format "2006.01.02" }}
+            </time>
+          </a>
+          
+          {{ with .Params.categories }}
+            <div class="post-card-categories">
+              {{ range . }}
+                <a class="p-category" href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+              {{ end }}
+            </div>
+          {{ end }}
+        </div>
+      </div>
+    </article>
+  {{ end }}
+</div>
+
+<style>
+  .cyber-home-header {
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+  }
+  
+  .cyber-home-title {
+    font-size: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    margin-bottom: 30px;
+    display: inline-block;
+    padding: 10px 30px;
+    border: 2px solid var(--neon-pink);
+    position: relative;
+  }
+  
+  .cyber-home-title::before,
+  .cyber-home-title::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: var(--dark-bg);
+    z-index: 1;
+  }
+  
+  .cyber-home-title::before {
+    top: -10px;
+    left: -10px;
+    border-top: 2px solid var(--neon-blue);
+    border-left: 2px solid var(--neon-blue);
+  }
+  
+  .cyber-home-title::after {
+    bottom: -10px;
+    right: -10px;
+    border-bottom: 2px solid var(--neon-blue);
+    border-right: 2px solid var(--neon-blue);
+  }
+  
+  .cyber-scanner-line {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--neon-green), transparent);
+    bottom: 0;
+    left: 0;
+    animation: scan 3s linear infinite;
+  }
+  
+  @keyframes scan {
+    0% {
+      transform: translateY(0);
+      opacity: 0.5;
+    }
+    50% {
+      transform: translateY(50px);
+      opacity: 0.8;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 0.5;
+    }
+  }
+  
+  .cyber-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 25px;
+  }
+  
+  .post-card {
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+    border: 1px solid var(--neon-blue);
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    background-color: rgba(6, 1, 19, 0.7);
+  }
+  
+  .post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(5, 217, 232, 0.5);
+    border-color: var(--neon-pink);
+  }
+  
+  .post-card-inner {
+    padding: 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .post-card-glitch {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, 
+      rgba(255, 42, 109, 0.1) 0%, 
+      rgba(5, 217, 232, 0.1) 50%, 
+      rgba(57, 255, 20, 0.1) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+  }
+  
+  .post-card:hover .post-card-glitch {
+    opacity: 1;
+    animation: glitch 0.3s ease-in-out infinite alternate;
+  }
+  
+  @keyframes glitch {
+    0% {
+      transform: translate(0);
+    }
+    20% {
+      transform: translate(-2px, 2px);
+    }
+    40% {
+      transform: translate(-2px, -2px);
+    }
+    60% {
+      transform: translate(2px, 2px);
+    }
+    80% {
+      transform: translate(2px, -2px);
+    }
+    100% {
+      transform: translate(0);
+    }
+  }
+  
+  .post-card-title {
+    font-size: 1.3rem;
+    margin-top: 0;
+    margin-bottom: 15px;
+    position: relative;
+  }
+  
+  .post-card-title a {
+    color: var(--neon-green);
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  
+  .post-card-title a:hover {
+    color: var(--neon-pink);
+    text-shadow: 0 0 8px rgba(255, 42, 109, 0.8);
+  }
+  
+  .post-card-summary {
+    flex-grow: 1;
+    overflow: hidden;
+    font-size: 0.9rem;
+  }
+  
+  .cyber-image {
+    border: 1px solid var(--neon-blue);
+    transition: all 0.3s ease;
+  }
+  
+  .cyber-image:hover {
+    border-color: var(--neon-pink);
+    box-shadow: 0 0 10px rgba(255, 42, 109, 0.6);
+  }
+  
+  .post-card-meta {
+    margin-top: 15px;
+    font-size: 0.8rem;
+    color: var(--cyber-yellow);
+    border-top: 1px dashed var(--neon-blue);
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .post-card-categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  
+  .post-card-categories a {
+    display: inline-block;
+    background-color: rgba(157, 0, 255, 0.2);
+    border: 1px solid var(--cyber-purple);
+    border-radius: 3px;
+    padding: 1px 5px;
+    font-size: 0.7rem;
+    color: var(--cyber-purple);
+    text-shadow: 0 0 5px rgba(157, 0, 255, 0.7);
+  }
+  
+  @media screen and (max-width: 768px) {
+    .cyber-grid {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+    
+    .cyber-home-title {
+      font-size: 2rem;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .cyber-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+{{ end }}

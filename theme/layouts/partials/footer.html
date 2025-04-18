@@ -1,8 +1,45 @@
 <footer class="site-footer">
-    <div class="wrapper">
-      <p class="copyright">© {{ now.Format "2006" }} {{ .Site.Title }}</p>
-      <p class="powered-by">
-        Powered by <a href="https://micro.blog/">Micro.blog</a>
-      </p>
-    </div>
-  </footer>
+  <div class="wrapper">
+    <p class="copyright">© {{ now.Format "2006" }} <span class="cyber-text">{{ .Site.Title }}</span></p>
+    <div class="cyber-line"></div>
+    <p class="powered-by">
+      <span class="cyber-small">Powered by</span> <a href="https://micro.blog/" class="cyber-link">Micro.blog</a>
+    </p>
+  </div>
+</footer>
+
+<style>
+  .cyber-text {
+    color: var(--neon-pink);
+    text-shadow: 0 0 5px rgba(255, 42, 109, 0.7);
+  }
+  
+  .cyber-small {
+    font-size: 0.9em;
+    opacity: 0.8;
+  }
+  
+  .cyber-link {
+    position: relative;
+    padding: 0 5px;
+  }
+  
+  .cyber-link::before {
+    content: '<';
+    color: var(--neon-green);
+    margin-right: 3px;
+  }
+  
+  .cyber-link::after {
+    content: '>';
+    color: var(--neon-green);
+    margin-left: 3px;
+  }
+  
+  .cyber-line {
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--neon-blue), transparent);
+    margin: 10px 0;
+    width: 100%;
+  }
+</style>

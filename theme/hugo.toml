@@ -1,3 +1,23 @@
-baseURL = 'https://example.org/'
-languageCode = 'en-us'
-title = 'My New Hugo Site'
+baseURL = "https://dylan.blog"
+languageCode = "en-us"
+title = "dylan.blog"
+
+[params]
+  description = "1940s disney meets 2040 AI"
+  theme_seconds = "1" # Forces CSS refresh
+  plugins_css = ["/css/custom.css"]
+  plugins_js = ["/js/cyberpunk.js"]
+
+[menu]
+  [[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    name = "Archive"
+    url = "/archive/"
+    weight = 2
+  [[menu.main]]
+    name = "Photos"
+    url = "/photos/"
+    weight = 3

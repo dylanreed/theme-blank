@@ -1,64 +1,600 @@
 <!DOCTYPE html>
 <html>
-    
-
-<script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><link rel="alternate" href="http://localhost:1313/index.xml" type="application/rss+xml" title="My New Hugo Site">
-
-
-<link rel="me" href="https://micro.blog/">
-
-
-
-
-
-
-
-<link rel="shortcut icon" href="https://micro.blog//favicon.png" type="image/x-icon">
-<link rel="EditURI" type="application/rsd+xml" href="http://localhost:1313/rsd.xml">
-<link rel="authorization_endpoint" href="https://micro.blog/indieauth/auth">
-<link rel="token_endpoint" href="https://micro.blog/indieauth/token">
-<link rel="subscribe" href="https://micro.blog/users/follow">
-<link rel="webmention" href="https://micro.blog/webmention">
-<link rel="micropub" href="https://micro.blog/micropub">
-<link rel="microsub" href="https://micro.blog/microsub">
-
-<link rel="stylesheet" href="/custom.css?">
-
-
-
-
-
-
+    <head>
+	<meta name="generator" content="Hugo 0.146.4"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>dylan.blog | dylan.blog</title>
+        <link rel="stylesheet" href="/css/custom.css">
+        
+            <link rel="stylesheet" href="/css/custom.css">
+        
+    </head>
     <body>
         <header class="site-header">
-    <div class="wrapper">
-      <a class="site-title" href="http://localhost:1313/">My New Hugo Site</a>
+  <div class="wrapper">
+    <div class="site-branding">
+      <div class="avatar-container">
+        <img src="/avatar.png" alt="Avatar" class="site-avatar">
+        <div class="avatar-glow"></div>
+      </div>
+      <a class="site-title" href="http://localhost:1313/">
+        <span class="cyber-glow">dylan.blog</span>
+      </a>
+    </div>
+    
+    <nav class="site-nav">
       
-      <nav class="site-nav">
-        
-        
-      </nav>
-    </div>
-  </header>
-        
+      
+        <a class="page-link active" href="/">
+          <span class="nav-text">Home</span>
+        </a>
+      
+        <a class="page-link" href="/archive/">
+          <span class="nav-text">Archive</span>
+        </a>
+      
+        <a class="page-link" href="/photos/">
+          <span class="nav-text">Photos</span>
+        </a>
+      
+    </nav>
+  </div>
+  <div class="cyber-scanner"></div>
+</header>
 
-	
-	
-	
-	
-	<div class="h-feed">
-		
-	</div>
+<style>
+  .site-branding {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .avatar-container {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  
+  .site-avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 2px solid var(--neon-blue);
+    border-radius: 50%;
+    transform: scale(0.9);
+    transition: all 0.3s ease;
+  }
+  
+  .avatar-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    box-shadow: 0 0 15px var(--neon-blue);
+    opacity: 0.7;
+    z-index: -1;
+    animation: pulse 3s ease-in-out infinite alternate;
+  }
+  
+  @keyframes pulse {
+    0% {
+      opacity: 0.5;
+      box-shadow: 0 0 10px var(--neon-blue);
+    }
+    100% {
+      opacity: 0.9;
+      box-shadow: 0 0 20px var(--neon-pink);
+    }
+  }
+  
+  .avatar-container:hover .site-avatar {
+    transform: scale(1);
+    border-color: var(--neon-pink);
+  }
+  
+  .cyber-glow {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .cyber-scanner {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, transparent, var(--neon-pink), transparent);
+    animation: scan 3s linear infinite;
+    opacity: 0.8;
+    z-index: 100;
+  }
+  
+  @keyframes scan {
+    0% {
+      left: -100%;
+    }
+    100% {
+      left: 100%;
+    }
+  }
+  
+  .nav-text {
+    position: relative;
+    z-index: 1;
+  }
+</style>
+        <main>
+            
 
+<div class="cyber-home-header">
+  <h1 class="cyber-home-title">dylan.blog</h1>
+  <div class="cyber-scanner-line"></div>
+</div>
 
+<div class="cyber-grid">
+</div>
+
+<style>
+  .cyber-home-header {
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+  }
+  
+  .cyber-home-title {
+    font-size: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    margin-bottom: 30px;
+    display: inline-block;
+    padding: 10px 30px;
+    border: 2px solid var(--neon-pink);
+    position: relative;
+  }
+  
+  .cyber-home-title::before,
+  .cyber-home-title::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: var(--dark-bg);
+    z-index: 1;
+  }
+  
+  .cyber-home-title::before {
+    top: -10px;
+    left: -10px;
+    border-top: 2px solid var(--neon-blue);
+    border-left: 2px solid var(--neon-blue);
+  }
+  
+  .cyber-home-title::after {
+    bottom: -10px;
+    right: -10px;
+    border-bottom: 2px solid var(--neon-blue);
+    border-right: 2px solid var(--neon-blue);
+  }
+  
+  .cyber-scanner-line {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--neon-green), transparent);
+    bottom: 0;
+    left: 0;
+    animation: scan 3s linear infinite;
+  }
+  
+  @keyframes scan {
+    0% {
+      transform: translateY(0);
+      opacity: 0.5;
+    }
+    50% {
+      transform: translateY(50px);
+      opacity: 0.8;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 0.5;
+    }
+  }
+  
+  .cyber-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 25px;
+  }
+  
+  .post-card {
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+    border: 1px solid var(--neon-blue);
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    background-color: rgba(6, 1, 19, 0.7);
+  }
+  
+  .post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(5, 217, 232, 0.5);
+    border-color: var(--neon-pink);
+  }
+  
+  .post-card-inner {
+    padding: 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .post-card-glitch {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, 
+      rgba(255, 42, 109, 0.1) 0%, 
+      rgba(5, 217, 232, 0.1) 50%, 
+      rgba(57, 255, 20, 0.1) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+  }
+  
+  .post-card:hover .post-card-glitch {
+    opacity: 1;
+    animation: glitch 0.3s ease-in-out infinite alternate;
+  }
+  
+  @keyframes glitch {
+    0% {
+      transform: translate(0);
+    }
+    20% {
+      transform: translate(-2px, 2px);
+    }
+    40% {
+      transform: translate(-2px, -2px);
+    }
+    60% {
+      transform: translate(2px, 2px);
+    }
+    80% {
+      transform: translate(2px, -2px);
+    }
+    100% {
+      transform: translate(0);
+    }
+  }
+  
+  .post-card-title {
+    font-size: 1.3rem;
+    margin-top: 0;
+    margin-bottom: 15px;
+    position: relative;
+  }
+  
+  .post-card-title a {
+    color: var(--neon-green);
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  
+  .post-card-title a:hover {
+    color: var(--neon-pink);
+    text-shadow: 0 0 8px rgba(255, 42, 109, 0.8);
+  }
+  
+  .post-card-summary {
+    flex-grow: 1;
+    overflow: hidden;
+    font-size: 0.9rem;
+  }
+  
+  .cyber-image {
+    border: 1px solid var(--neon-blue);
+    transition: all 0.3s ease;
+  }
+  
+  .cyber-image:hover {
+    border-color: var(--neon-pink);
+    box-shadow: 0 0 10px rgba(255, 42, 109, 0.6);
+  }
+  
+  .post-card-meta {
+    margin-top: 15px;
+    font-size: 0.8rem;
+    color: var(--cyber-yellow);
+    border-top: 1px dashed var(--neon-blue);
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .post-card-categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  
+  .post-card-categories a {
+    display: inline-block;
+    background-color: rgba(157, 0, 255, 0.2);
+    border: 1px solid var(--cyber-purple);
+    border-radius: 3px;
+    padding: 1px 5px;
+    font-size: 0.7rem;
+    color: var(--cyber-purple);
+    text-shadow: 0 0 5px rgba(157, 0, 255, 0.7);
+  }
+  
+  @media screen and (max-width: 768px) {
+    .cyber-grid {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+    
+    .cyber-home-title {
+      font-size: 2rem;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .cyber-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+        </main>
         <footer class="site-footer">
-    <div class="wrapper">
-      <p class="copyright">© 2025 My New Hugo Site</p>
-      <p class="powered-by">
-        Powered by <a href="https://micro.blog/">Micro.blog</a>
-      </p>
-    </div>
-  </footer>
-		
+  <div class="wrapper">
+    <p class="copyright">© 2025 <span class="cyber-text">dylan.blog</span></p>
+    <div class="cyber-line"></div>
+    <p class="powered-by">
+      <span class="cyber-small">Powered by</span> <a href="https://micro.blog/" class="cyber-link">Micro.blog</a>
+    </p>
+  </div>
+</footer>
+
+<style>
+  .cyber-text {
+    color: var(--neon-pink);
+    text-shadow: 0 0 5px rgba(255, 42, 109, 0.7);
+  }
+  
+  .cyber-small {
+    font-size: 0.9em;
+    opacity: 0.8;
+  }
+  
+  .cyber-link {
+    position: relative;
+    padding: 0 5px;
+  }
+  
+  .cyber-link::before {
+    content: '<';
+    color: var(--neon-green);
+    margin-right: 3px;
+  }
+  
+  .cyber-link::after {
+    content: '>';
+    color: var(--neon-green);
+    margin-left: 3px;
+  }
+  
+  .cyber-line {
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--neon-blue), transparent);
+    margin: 10px 0;
+    width: 100%;
+  }
+</style>
+        
+  <script src="/js/cyberpunk.js"></script>
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  
+  function addTerminalEffect() {
+    const terminal = document.createElement('div');
+    terminal.classList.add('terminal-overlay');
+    document.body.appendChild(terminal);
+    
+    const lines = [
+      'SYSTEM BOOT:',
+      'INITIALIZING...',
+      'CYBERNET PROTOCOLS ACTIVE',
+      'NEURAL LINK ESTABLISHED',
+      `WELCOME TO ${document.title.toUpperCase()}`,
+      'RENDERING INTERFACE...'
+    ];
+    
+    const terminalContent = document.createElement('div');
+    terminalContent.classList.add('terminal-content');
+    terminal.appendChild(terminalContent);
+    
+    let lineIndex = 0;
+    let charIndex = 0;
+    
+    function typeLine() {
+      if (lineIndex < lines.length) {
+        const line = lines[lineIndex];
+        if (charIndex === 0) {
+          const lineElement = document.createElement('div');
+          lineElement.classList.add('terminal-line');
+          terminalContent.appendChild(lineElement);
+        }
+        
+        const currentLine = terminalContent.lastChild;
+        currentLine.textContent = line.substring(0, charIndex + 1) + '█';
+        charIndex++;
+        
+        if (charIndex >= line.length) {
+          currentLine.textContent = line;
+          lineIndex++;
+          charIndex = 0;
+          setTimeout(typeLine, 300);
+        } else {
+          setTimeout(typeLine, 30);
+        }
+      } else {
+        setTimeout(() => {
+          terminal.classList.add('fade-out');
+          setTimeout(() => {
+            terminal.remove();
+          }, 500);
+        }, 500);
+      }
+    }
+    
+    typeLine();
+  }
+  
+  
+  function addFlickerEffect() {
+    const neonElements = document.querySelectorAll('.site-title, h1, h2, h3');
+    
+    neonElements.forEach(element => {
+      
+      if (Math.random() > 0.7) {
+        setTimeout(() => {
+          element.classList.add('flicker');
+          
+          
+          setTimeout(() => {
+            element.classList.remove('flicker');
+            
+            
+            setTimeout(addFlickerEffect, Math.random() * 10000);
+          }, 1000);
+        }, Math.random() * 5000);
+      }
+    });
+  }
+  
+  
+  function addGlitchEffect() {
+    const glitch = document.createElement('div');
+    glitch.classList.add('glitch-overlay');
+    document.body.appendChild(glitch);
+    
+    setTimeout(() => {
+      glitch.remove();
+      if (Math.random() > 0.6) {
+        setTimeout(addGlitchEffect, Math.random() * 15000 + 5000);
+      }
+    }, 150);
+  }
+  
+  
+  addTerminalEffect();
+  
+  
+  setTimeout(() => {
+    addFlickerEffect();
+    setTimeout(addGlitchEffect, 5000);
+  }, 3500);
+});
+</script>
+
+<style>
+  .terminal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease;
+  }
+  
+  .terminal-content {
+    width: 80%;
+    max-width: 600px;
+    color: var(--neon-green);
+    font-family: 'Courier New', monospace;
+    font-size: 18px;
+  }
+  
+  .terminal-line {
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+  
+  .fade-out {
+    opacity: 0;
+  }
+  
+  .flicker {
+    animation: neon-flicker 1s ease-in-out;
+  }
+  
+  @keyframes neon-flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+      opacity: 1;
+      text-shadow: 0 0 5px var(--neon-blue), 0 0 10px var(--neon-blue), 0 0 15px var(--neon-blue);
+    }
+    20%, 24%, 55% {
+      opacity: 0.5;
+      text-shadow: none;
+    }
+  }
+  
+  .glitch-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    pointer-events: none;
+    z-index: 9998;
+    animation: glitch-effect 0.15s steps(2) forwards;
+  }
+  
+  @keyframes glitch-effect {
+    0% {
+      background-color: transparent;
+    }
+    25% {
+      background-color: rgba(255, 42, 109, 0.1);
+      transform: translateX(-5px);
+    }
+    50% {
+      background-color: rgba(5, 217, 232, 0.1);
+      transform: translateX(5px) skewX(10deg);
+    }
+    75% {
+      background-color: rgba(57, 255, 20, 0.1);
+      transform: translateY(-3px);
+    }
+    100% {
+      background-color: transparent;
+      transform: none;
+    }
+  }
+</style>
+        
+            <script src="/js/cyberpunk.js"></script>
+        
     </body>
 </html>
