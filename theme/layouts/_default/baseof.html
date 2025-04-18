@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>{{ if .Title }}{{ .Title }} | {{ end }}{{ .Site.Title }}</title>
-        <link rel="stylesheet" href="/css/custom.css">
-        {{ range .Site.Params.plugins_css }}
-            <link rel="stylesheet" href="{{ . }}">
-        {{ end }}
-    </head>
+    {{ partial "head.html" . }}
     <body>
         {{ partial "header.html" . }}
         <main>
@@ -16,8 +8,5 @@
         </main>
         {{ partial "footer.html" . }}
         {{ partial "custom_footer.html" . }}
-        {{ range .Site.Params.plugins_js }}
-            <script src="{{ . }}"></script>
-        {{ end }}
     </body>
 </html>
