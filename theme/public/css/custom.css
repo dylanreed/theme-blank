@@ -1,14 +1,14 @@
 /* Cyberpunk Theme for Micro.blog */
 
 :root {
-  --neon-pink: #FF00FF;
-  --neon-blue: #00FFFF;
+  --neon-pink: #ff2a6d;
+  --neon-blue: #05d9e8;
   --neon-green: #39ff14;
-  --cyber-yellow: #FF8C69;
+  --cyber-yellow: #ffff00;
   --dark-bg: #0d0221;
   --darker-bg: #060113;
-  --cyber-purple: #00CED1;
-  --cyber-text: #C0C0C0;
+  --cyber-purple: #9d00ff;
+  --cyber-text: #d1f7ff;
   --grid-color: rgba(5, 217, 232, 0.2);
 }
 
